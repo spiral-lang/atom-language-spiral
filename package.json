@@ -1,0 +1,26 @@
+{
+  "name": "language-spiral",
+  "version": "0.0.1",
+  "description": "Spiral language support in Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "main": "lib/main",
+  "homepage": "https://splang.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spiral-lang/atom-language-spiral.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spiral-lang/atom-language-spiral/issues"
+  },
+  "keywords": [
+    "tree-sitter",
+    "spiral"
+  ],
+  "dependencies": {
+    "tree-sitter-spiral": "^0.0.2"
+  }
+}
