@@ -1,6 +1,6 @@
 {
   "name": "language-spiral",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Spiral language support in Atom",
   "engines": {
     "atom": "*",
@@ -21,6 +21,9 @@
     "spiral"
   ],
   "dependencies": {
-    "tree-sitter-spiral": "^0.0.3"
+    "tree-sitter-spiral": "^0.0.4"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.9.0"
   }
 }

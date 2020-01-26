@@ -18,6 +18,6 @@ comments:
   start: '// '
 
 scopes:
-  'program': 'source.sp'
+  'source_file': 'source.sp'
   '"if"': 'keyword.control'
   'string_content': 'string.quoted.double'
