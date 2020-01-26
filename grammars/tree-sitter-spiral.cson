@@ -10,14 +10,107 @@ injectionRegex: '^sp$|^SP$|spiral|Spiral'
 
 folds: [
   {
-    type: ['comment', 'block_comment']
+    type: ['line_comment', 'block_comment']
+  },
+  {
+    type: [
+      'statements_block'
+      'braces_object'
+      'bracket_object'
+      'doc_fragment'
+    ]
+    start: {index: 0}
+    end: {index: -1}
   }
 ]
 
-comments:
-  start: '// '
 
 scopes:
   'source_file': 'source.sp'
+  'decimal_literal > fraction_literal > arabic_natural_number,
+   natural_number,
+   natural_fraction_literal > natural_number,
+   natural_unit_suffix,
+   fractional_unit_suffix
+  ': 'constant.numeric'
+
+  'char_literal,
+    escape_sequence
+  ': 'constant.character.escape'
+
+  'escaped_string_literal > "`",
+  escaped_string_literal > string_start,
+  escaped_string_literal > string_content,
+  raw_string_literal > string_start,
+  raw_string_literal > internal_string_content,
+  raw_string_literal > "`",
+  spx_expression > spx_element > spx_text,
+  spx_expression > spx_fragment > spx_text
+  ': 'string.quoted.template'
+
+  'line_comment': 'comment.line'
+  'block_comment': 'comment.block'
+  'decorator': 'entity.name.function.decorator'
+  'document > doc_fragment > "--",
+   document > doc_fragment > spx_text': 'comment.block.documentation.spiral'
+  'arrow': 'storage.type.function.arrow'
+
+  '"let"': 'storage.type'
+  '"const"': 'storage.modifier'
+
   '"if"': 'keyword.control'
-  'string_content': 'string.quoted.double'
+  '"on"': 'keyword.control'
+  '"is"': 'keyword.control'
+  '"not"': 'keyword.control'
+  '"morphs"': 'keyword.control'
+  '"becomes"': 'keyword.control'
+  '"then"': 'keyword.control'
+  '"and"': 'keyword.control'
+  '"or"': 'keyword.control'
+  '"if"': 'keyword.control'
+  '"else"': 'keyword.control'
+  '"while"': 'keyword.control'
+  '"where"': 'keyword.control'
+  '"return"': 'keyword.control'
+  '"yield"': 'keyword.control'
+  '"use"': 'keyword.control'
+  '"do"': ' keyword.control'
+  '"throw"': 'keyword.control'
+  '"match"': 'keyword.control'
+  '"try"': ' keyword.control'
+  '"catch"': 'keyword.control'
+  'binding > "@"': 'keyword.control'
+  '"show"': 'keyword.control'
+  '"for"': 'keyword.control'
+  '"of"': 'keyword.control'
+  ' "!",
+    "?",
+    "~",
+    "|" ,
+    "&" ,
+    "∘" ,
+    "->",
+    "|>",
+    "≠" ,
+    "!=",
+    "~=",
+    "==",
+    "≤",
+    "<=",
+    "≥",
+    ">=",
+    algebra_operation > ">",
+    algebra_operation > "<",
+    all_operators_preprocessor,
+    ambiguous_operator,
+    operator_as_expression
+': 'keyword.operator'
+  'object_key': 'variable.other.object.property'
+
+  'boolean_literal': 'constant.language'
+  'object_declaration > ident:nth-child(0),
+   functor_literal_expression > ident:nth-child(0),
+   functor_without_arguments > ident:nth-child(0)
+  ': 'storage.type.function'
+  'symbol': 'constant.variable'
+  'spread_element': 'variable.interpolation'
