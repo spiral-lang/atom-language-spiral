@@ -1,11 +1,11 @@
 name: 'Spiral'
-scopeName: 'source.sp'
+scopeName: 'source.spr'
 type: 'tree-sitter'
 parser: 'tree-sitter-spiral'
 
-fileTypes: ['sp']
+fileTypes: ['spr', 'spiral']
 
-injectionRegex: '^sp$|^SP$|spiral|Spiral'
+injectionRegex: '^spr$|^SPR$|spiral|Spiral'
 
 
 folds: [
@@ -26,7 +26,8 @@ folds: [
 
 
 scopes:
-  'source_file': 'source.sp'
+  'source_file': 'source.spr'
+  'regex': 'string.regexp'
   'decimal_literal > fraction_literal > arabic_natural_number,
    natural_number,
    natural_fraction_literal > natural_number,
@@ -57,7 +58,9 @@ scopes:
 
   '"let"': 'storage.type'
   '"const"': 'storage.modifier'
-
+  '"break"': 'keyword.control'
+  '"continue"': 'keyword.control'
+  '"in"': 'keyword.control'
   '"if"': 'keyword.control'
   '"on"': 'keyword.control'
   '"is"': 'keyword.control'
@@ -112,5 +115,5 @@ scopes:
    functor_literal_expression > ident:nth-child(0),
    functor_without_arguments > ident:nth-child(0)
   ': 'storage.type.function'
-  'symbol': 'constant.variable'
+  'symbol': 'constant'
   'spread_element': 'variable.interpolation'

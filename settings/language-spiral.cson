@@ -1,4 +1,4 @@
-'.source.sp':
+'.source.spr':
   'editor':
     'commentStart': '// '
     'increaseIndentPattern': '(?x)
