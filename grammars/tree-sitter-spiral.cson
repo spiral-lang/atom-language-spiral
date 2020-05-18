@@ -73,7 +73,6 @@ scopes:
   '"if"': 'keyword.control'
   '"else"': 'keyword.control'
   '"while"': 'keyword.control'
-  '"where"': 'keyword.control'
   '"return"': 'keyword.control'
   '"yield"': 'keyword.control'
   '"use"': 'keyword.control'
